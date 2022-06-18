@@ -2,8 +2,9 @@ from django.db import models
 
 
 class Order(models.Model):
-    order_number = models.BigIntegerField(
+    order_id = models.BigIntegerField(
         verbose_name='Номер заказа',
+        primary_key=True,
     )
     usd_price = models.DecimalField(
         verbose_name='Стоимость, $',
@@ -31,4 +32,5 @@ class Order(models.Model):
         verbose_name_plural = 'заказы'
 
     def __str__(self):
-        return f'{self.order_number} - {self.delivery_date}'
+        return f'Заказ № {self.order_number} - ' \
+               f'дата поставки: {self.delivery_date}'

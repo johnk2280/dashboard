@@ -5,14 +5,13 @@ from .models import Order
 
 class OrderAdmin(admin.ModelAdmin):
     search_fields = (
-        'order_number',
+        'order_id',
         'usd_price',
         'rur_price',
         'delivery_date',
     )
     list_display = (
-        'id',
-        'order_number',
+        'order_id',
         'usd_price',
         'rur_price',
         'delivery_date',
