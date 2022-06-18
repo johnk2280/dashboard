@@ -141,3 +141,7 @@ API_NAME = 'sheets'
 API_VERSION = 'v4'
 TABLE_RANGE = 'A1:D999'
 DIMENSION = 'ROWS'
+
+# currency converter settings
+EXCHANGE_RATES_URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
+CURRENCY = 'USD'

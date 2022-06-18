@@ -6,6 +6,7 @@ import httplib2
 import apiclient
 from oauth2client.service_account import ServiceAccountCredentials
 
+from gsheets_connector.parser import Parser
 from numbers_dashboard.settings import API_NAME
 from numbers_dashboard.settings import API_VERSION
 from numbers_dashboard.settings import DIMENSION
@@ -37,14 +38,14 @@ class SheetsApiConnector:
             http=self.http_auth,
         )
 
-    def get_data(self):
-
+    def get_row_data(self) -> Iterable:
         values = self.service.spreadsheets().values().get(
             spreadsheetId=self.spreadsheet_id,
             range=self.table_range,
             majorDimension=self.dimension,
         ).execute()
-        return values
+        for row in values['values'][1:]:
+            yield row
 
 
 def _write_to_json(content: dict, file_name: str) -> None:
@@ -54,4 +55,6 @@ def _write_to_json(content: dict, file_name: str) -> None:
 
 if __name__ == '__main__':
     conn = SheetsApiConnector()
-    _write_to_json(conn.get_data(), 'response_data')
+    parser = Parser()
+    for row in conn.get_row_data():
+        print(parser.get_entry(row))
