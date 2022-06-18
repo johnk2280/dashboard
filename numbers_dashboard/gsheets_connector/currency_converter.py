@@ -10,7 +10,6 @@ class CurrencyConverter:
         self.rates = self._get_rates()
 
     def _get_response(self) -> dict:
-        print('Запрос курса')
         response = requests.get(self.url)
         return response.json()
 
