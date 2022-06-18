@@ -1,3 +1,24 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Order
+
+
+class OrderAdmin(admin.ModelAdmin):
+    search_fields = (
+        'order_number',
+        'usd_price',
+        'rur_price',
+        'delivery_date',
+    )
+    list_display = (
+        'id',
+        'order_number',
+        'usd_price',
+        'rur_price',
+        'delivery_date',
+        'created_at',
+        'updated_at',
+    )
+
+
+admin.site.register(Order, OrderAdmin)
