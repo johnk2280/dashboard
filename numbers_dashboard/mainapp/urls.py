@@ -6,5 +6,5 @@ from .views import IndexView
 app_name = 'mainapp'
 
 urlpatterns = [
-    path('', IndexView.as_view()),
+    path('orders/', IndexView.as_view()),
 ]

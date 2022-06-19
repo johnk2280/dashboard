@@ -20,7 +20,3 @@ class CurrencyRate:
     def get_rate_to_rur(self, currency: str) -> float:
         currency_rate = self.rates[currency]['Value']
         return currency_rate
-
-
-
-
