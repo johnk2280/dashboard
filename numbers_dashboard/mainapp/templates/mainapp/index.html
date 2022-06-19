@@ -6,17 +6,32 @@
 
 {% block content %}
 <div class="row">
-    <h1>Hello from johnk!!!</h1>
-    <h2>TOTAL, $ - {{ usd_total }}</h2>
-    <h2>TOTAL, rur - {{ rur_total }}</h2>
+    <h1>Dashboard</h1>
+    <div>
+        <table class="table table-bordered" id="dataTable">
+            <thead>
+            <tr align="center" bgcolor="#e2e1da">
+                <th>TOTAL, USD</th>
+                <th>TOTAL, RUR $</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr align="center" bgcolor="#f5f4ed">
+                <td>{{ usd_total }}</td>
+                <td>{{ rur_total }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
     <table class="table table-bordered" id="dataTable">
         <thead>
-            <tr align="center" bgcolor="#e2e1da">
-                <th >Номер заказа</th>
-                <th>Цена, $</th>
-                <th>Цена, руб</th>
-                <th>Срок поставки</th>
-            </tr>
+        <tr align="center" bgcolor="#e2e1da">
+            <th>Номер заказа</th>
+            <th>Цена, $</th>
+            <th>Цена, руб</th>
+            <th>Срок поставки</th>
+        </tr>
         </thead>
         <tbody>
         {% for entry in entries %}
