@@ -146,3 +146,8 @@ DIMENSION = 'ROWS'
 # currency converter settings
 EXCHANGE_RATES_URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
 CURRENCY = 'USD'
+
+# telegram bot settings
+BOT_TOKEN = env('BOT_TOKEN')
+BOT_CHAT_ID = env('BOT_CHAT_ID')
+MESSAGE_URL = 'https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'
