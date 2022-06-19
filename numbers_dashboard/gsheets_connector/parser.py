@@ -3,14 +3,15 @@ import decimal
 from typing import List
 
 from numbers_dashboard.settings import CURRENCY
-from .currency_converter import CurrencyConverter
+from .currency_converter import CurrencyRate
 
 
 class Parser:
 
     def __init__(self):
-        self.converter = CurrencyConverter()
-        self.rate = self.converter.get_currency_rate_to_rur(CURRENCY)
+        self.currency = CURRENCY
+        self.converter = CurrencyRate()
+        self.rate = self.converter.get_rate_to_rur(self.currency)
 
     def _get_date(self, dt: str) -> datetime.date:
         try:

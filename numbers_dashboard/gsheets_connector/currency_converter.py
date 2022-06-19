@@ -3,7 +3,7 @@ import requests
 from numbers_dashboard.settings import EXCHANGE_RATES_URL
 
 
-class CurrencyConverter:
+class CurrencyRate:
 
     def __init__(self):
         self.url = EXCHANGE_RATES_URL
@@ -17,7 +17,7 @@ class CurrencyConverter:
         rates = self._get_response()['Valute']
         return rates
 
-    def get_currency_rate_to_rur(self, currency: str) -> float:
+    def get_rate_to_rur(self, currency: str) -> float:
         currency_rate = self.rates[currency]['Value']
         return currency_rate
 

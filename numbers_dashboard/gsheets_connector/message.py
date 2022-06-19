@@ -12,8 +12,9 @@ class TelegramMessage:
         self.chat_id = BOT_CHAT_ID
         self.url = MESSAGE_URL
 
-    def send(self, text: str) -> bool:
-        url = self.url.format(self.token, self.chat_id, text)
+    def send(self, content: list) -> bool:
+        content = '\n'.join(map(str, content))
+        url = self.url.format(self.token, self.chat_id, content)
         resp = requests.get(url)
         return resp.ok
 

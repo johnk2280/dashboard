@@ -7,5 +7,27 @@
 {% block content %}
 <div class="row">
     <h1>Hello from johnk!!!</h1>
+    <h2>TOTAL, $ - {{ usd_total }}</h2>
+    <h2>TOTAL, rur - {{ rur_total }}</h2>
+    <table class="table table-bordered" id="dataTable">
+        <thead>
+            <tr align="center" bgcolor="#e2e1da">
+                <th >Номер заказа</th>
+                <th>Цена, $</th>
+                <th>Цена, руб</th>
+                <th>Срок поставки</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entry in entries %}
+        <tr align="center" bgcolor="#f5f4ed">
+            <td>{{ entry.order_id }}</td>
+            <td>{{ entry.usd_price }}</td>
+            <td>{{ entry.rur_price }}</td>
+            <td>{{ entry.delivery_date }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
