@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', include('mainapp.urls', namespace='main'), name='main'),
+    path('', include('mainapp.urls', namespace='main'), name='main'),
 ]

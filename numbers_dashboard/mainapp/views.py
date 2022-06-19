@@ -8,8 +8,7 @@ class IndexView(View):
 
     def get(self, request):
         r = request.method
-        # return render(request, 'mainapp/index.html', {})
-        return HttpResponse('hello')
+        return render(request, 'mainapp/index.html', {})
 
 
 
