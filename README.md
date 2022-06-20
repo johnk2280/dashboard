@@ -32,4 +32,24 @@
 
           $ pip3 install -r requirements.txt
           
-5. Перейдите в директорию проекта и выполните миграции в 
+5. В директории основного приложения **numbers_dushboard** создайте файл **.env**
+                   
+5. Создайте базу данных:
+
+
+        $ sudo -u postgres psq
+        
+        postgres=# CREATE DATABASE <db_name> OWNER <owner_name>;
+
+4. Подключить БД в настройках (../uc_manufacture/settings.py):
+
+
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': env('DB_NAME'),
+                'USER': env('DB_USER'),
+                'PASSWORD': env('DB_PASSWORD'),
+                'HOST': 'localhost',
+            }
+        }
