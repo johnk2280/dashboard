@@ -14,8 +14,7 @@ function App() {
         .then(data => { setEntitiesList(data);});
   }, []);
 
-  // list = entitiesList.map( i => (<div>{i.order_id}: {i.usd_price}: {i.rur_price}: {i.delivery_date}</div>));
-  list = entitiesList.map( i => (<div>{i.id}</div>));
+  list = entitiesList.map( i => (<div>{i.order_id}: {i.usd_price}: {i.rur_price}: {i.delivery_date}</div>));
 
   return (
       <div className="App">
