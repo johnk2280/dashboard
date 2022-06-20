@@ -32,24 +32,30 @@
 
           $ pip3 install -r requirements.txt
           
-5. В директории основного приложения **numbers_dushboard** создайте файл **.env**
                    
 5. Создайте базу данных:
 
 
-        $ sudo -u postgres psq
-        
-        postgres=# CREATE DATABASE <db_name> OWNER <owner_name>;
+           $ sudo -u postgres psq
 
-4. Подключить БД в настройках (../numbers_dushboard/settings.py):
+           postgres=# CREATE DATABASE <db_name> OWNER <owner_name>;
 
 
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': env('DB_NAME'),
-                'USER': env('DB_USER'),
-                'PASSWORD': env('DB_PASSWORD'),
-                'HOST': 'localhost',
-            }
-        }
+6. В директории основного приложения **./numbers_dashboard** создайте файл **.env** и заполните на основе шаблона **.env.template**
+7. Перейдите в директорию проекта и выполните миграции командой:
+            
+           $ python manage.py migrate
+           
+8. Если миграций не случилось и вылетело исключение, необходимо удалить файлы из директории:
+**./numbers_dashboard/mainapp/migrations/0001_initial.py**
+9. Создайте и выполните миграции заново:
+
+           $ python manage.py makemigrations
+
+           $ python manage.py migrate
+
+10. Запустите проект (по умолчанию проект запускается на 8000 порту):
+
+           $ python manage.py runserver
+           
+11. Перейдите по адресу: http://127.0.0.1:8000/orders/
