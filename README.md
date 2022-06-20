@@ -41,7 +41,7 @@
         
         postgres=# CREATE DATABASE <db_name> OWNER <owner_name>;
 
-4. Подключить БД в настройках (../uc_manufacture/settings.py):
+4. Подключить БД в настройках (../numbers_dushboard/settings.py):
 
 
         DATABASES = {
