@@ -2,14 +2,16 @@ import datetime
 
 from django.shortcuts import render
 from django.views.generic import View
+from rest_framework import generics
 
 from .models import Order
 from gsheets_connector.connector import SheetsApiConnector
 from gsheets_connector.parser import Parser
 from gsheets_connector.message import TelegramMessage
+from .serializers import OrderSerializer
 
 
-class IndexView(View):
+class OrdersView(View):
     connector = SheetsApiConnector()
     parser = Parser()
     message = TelegramMessage()
@@ -46,3 +48,8 @@ class IndexView(View):
             'entries': entries,
         }
         return render(request, 'mainapp/orders.html', context)
+
+
+class OrderListView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
