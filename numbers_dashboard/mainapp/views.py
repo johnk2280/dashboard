@@ -43,6 +43,7 @@ class OrdersView(View):
             self.message.send(expired_orders)
 
         context = {
+            'title': 'Заказы',
             'usd_total': usd_total,
             'rur_total': rur_total,
             'entries': entries,
